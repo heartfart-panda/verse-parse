@@ -4,3 +4,12 @@ export function writeSearchToQuery(existingQuery, searchValue) {
     searchParams.set('page', 1);
     return searchParams.toString();
 }
+
+export function readFromQuery(existingQuery) {
+    const searchParams = new URLSearchParams(existingQuery);
+    const queryOptions = {
+        search: searchParams.get('search'),
+        page: Number(searchParams.get('page')),
+    };
+    return queryOptions;
+}
