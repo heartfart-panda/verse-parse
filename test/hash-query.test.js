@@ -1,4 +1,4 @@
-import { writeSearchToQuery, readFromQuery } from '../src/hash-query.js';
+import { writeSearchToQuery, readFromQuery, writePageToQuery } from '../src/hash-query.js';
 
 const test = QUnit.test;
 
@@ -28,4 +28,16 @@ test('read from query', assert => {
 
     // Assert
     assert.deepEqual(result, expected);
+});
+
+test('write page to query', assert => {
+    // Arrange
+    const expected = 'search=kanye+west&page=2';
+    const currentPageNumber = 2;
+    const existingQuery = 'search=kanye+west&page=1';
+    // Act
+    const result = writePageToQuery(existingQuery, currentPageNumber);
+
+    // Assert
+    assert.equal(result, expected);
 });
