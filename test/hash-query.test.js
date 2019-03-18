@@ -1,6 +1,5 @@
 import { writeSearchToQuery, readFromQuery } from '../src/hash-query.js';
 
-
 const test = QUnit.test;
 
 QUnit.module('Hash query');
