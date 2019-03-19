@@ -45,7 +45,18 @@ test('Make artist card', assert => {
     assert.htmlEqual(result, expected);
 });
 
-
+function makeProfile(user) {
+    const html = `
+        <div id="profile">
+            <img src="./assets/unknown-user.png" alt="Unknow User Image">
+            <p>Tommy</p>
+            <button>Sign Out</button>
+        </div>
+    `;
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content;
+};
 
 test('Make profile', assert => {
     // Arrange
@@ -56,10 +67,14 @@ test('Make profile', assert => {
             <button>Sign Out</button>
         </div>
     `;
+    const user = {
+        displayName: 'Tommy',
+        photoURL: './assets/unknown-user.png'
+    };
 
     // Act
     const result = makeProfile(user)
 
     // Assert
-    assert.equal(result, expected);
+    assert.htmlEqual(result, expected);
 });
