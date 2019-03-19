@@ -10,7 +10,8 @@ test('Make artist card', assert => {
     // Arrange
     const expected = `
         <li>
-            <h2>Kanye West</h2>
+            <span class="star">★</span>
+            <span>Kanye West</span>
         </li>
     `;
     const artist = {

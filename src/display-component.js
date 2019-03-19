@@ -1,6 +1,5 @@
 import { readFromQuery } from './hash-query.js';
 
-
 const artistSearch = document.getElementById('artist-search');
 
 export default function loadDisplay() {

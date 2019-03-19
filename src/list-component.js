@@ -1,7 +1,8 @@
 export function makeArtistCard(artist) {
     const html = `
         <li>
-            <h2>${artist.artist.artist_name}</h2>
+            <span class="star">★</span>
+            <span>${artist.artist.artist_name}</span>
         </li>
     `;
     const template = document.createElement('template');
@@ -15,6 +16,16 @@ export default function loadArtists(artists) {
     clearList();
     artists.forEach(artist => {
         const dom = makeArtistCard(artist);
+        const li = dom.querySelector('li');
+        const star = dom.querySelector('.star');
+        li.addEventListener('click', () => {
+            if(star.classList.contains('favorite')) {
+                star.classList.remove('favorite');
+            }
+            else {
+                star.classList.add('favorite');
+            }
+        });
         searchedArtistList.appendChild(dom);
     });
 }
