@@ -20,10 +20,17 @@ export default function loadArtists(artists) {
         const dom = makeArtistCard(artist);
         const li = dom.querySelector('li');
         const star = dom.querySelector('.star');
+        const userId = auth.currentUser.uid;
+        const userFavorites = favoritesByUserRef.child(userId);
+        const favoriteArtist = userFavorites.child(artist.artist.artist_id);
+        favoriteArtist.once('value')
+            .then(snapshot => {
+                const value = snapshot.val();
+                if(value) {
+                    star.classList.add('favorite');
+                }
+            });
         li.addEventListener('click', () => {
-            const userId = auth.currentUser.uid;
-            const userFavorites = favoritesByUserRef.child(userId);
-            const favoriteArtist = userFavorites.child(artist.artist.artist_id);
             if(star.classList.contains('favorite')) {
                 star.classList.remove('favorite');
                 favoriteArtist.remove();
