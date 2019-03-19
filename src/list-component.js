@@ -1,3 +1,5 @@
+import { auth, favoritesByUserRef } from './firebase.js';
+
 export function makeArtistCard(artist) {
     const html = `
         <li>
@@ -19,11 +21,19 @@ export default function loadArtists(artists) {
         const li = dom.querySelector('li');
         const star = dom.querySelector('.star');
         li.addEventListener('click', () => {
+            const userId = auth.currentUser.uid;
+            const userFavorites = favoritesByUserRef.child(userId);
+            const favoriteArtist = userFavorites.child(artist.artist.artist_id);
             if(star.classList.contains('favorite')) {
                 star.classList.remove('favorite');
+                favoriteArtist.remove();
             }
             else {
                 star.classList.add('favorite');
+                favoriteArtist.set({
+                    artist_id: artist.artist.artist_id,
+                    artist_name: artist.artist.artist_name
+                });
             }
         });
         searchedArtistList.appendChild(dom);
