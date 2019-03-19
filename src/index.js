@@ -5,7 +5,9 @@ import { makeSearchUrl } from './make-search-url.js';
 import { readFromQuery } from './hash-query.js';
 import loadDisplay from './display-component.js';
 import './paging-component.js';
+import loadProfile from './profile-component.js';
 
+loadProfile();
 loadDisplay();
 
 window.addEventListener('hashchange', () => {

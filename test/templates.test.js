@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { makeProfile } from '../src/display-component.js';
+import { makeProfile } from '../src/profile-component.js';
 import { makeArtistCard } from '../src/list-component.js';
 
 const test = QUnit.test;
