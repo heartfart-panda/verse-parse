@@ -1,5 +1,5 @@
 /* eslint-disable */
-
+import { makeProfile } from '../src/display-component.js';
 import { makeArtistCard } from '../src/list-component.js';
 
 const test = QUnit.test;
@@ -45,24 +45,11 @@ test('Make artist card', assert => {
     assert.htmlEqual(result, expected);
 });
 
-function makeProfile(user) {
-    const html = `
-        <div id="profile">
-            <img src="./assets/unknown-user.png" alt="Unknow User Image">
-            <p>Tommy</p>
-            <button>Sign Out</button>
-        </div>
-    `;
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content;
-};
-
 test('Make profile', assert => {
     // Arrange
     const expected = `
         <div id="profile">
-            <img src="./assets/unknown-user.png" alt="Unknow User Image">
+            <img src="./assets/unknown-user.png" alt="User Image">
             <p>Tommy</p>
             <button>Sign Out</button>
         </div>
