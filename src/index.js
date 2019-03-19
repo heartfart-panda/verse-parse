@@ -6,6 +6,8 @@ import { readFromQuery } from './hash-query.js';
 import loadDisplay from './display-component.js';
 import loadProfile from './profile-component.js';
 
+const searchedArtistList = document.getElementById('searched-artist-list');
+
 loadProfile();
 loadDisplay();
 
@@ -22,7 +24,7 @@ window.addEventListener('hashchange', () => {
                 alert('no results found');
             }
             else {
-                loadArtists(result.message.body.artist_list);
+                loadArtists(result.message.body.artist_list, searchedArtistList);
             }
         });
 });

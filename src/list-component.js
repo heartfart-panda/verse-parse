@@ -4,7 +4,7 @@ export function makeArtistCard(artist) {
     const html = `
         <li>
             <span class="star">★</span>
-            <span>${artist.artist.artist_name}</span>
+            <span>${artist.artist_name || artist.artist.artist_name}</span>
         </li>
     `;
     const template = document.createElement('template');
@@ -12,17 +12,15 @@ export function makeArtistCard(artist) {
     return template.content;
 }
 
-const searchedArtistList = document.getElementById('searched-artist-list');
-
-export default function loadArtists(artists) {
-    clearList();
+export default function loadArtists(artists, ul) {
+    clearList(ul);
     artists.forEach(artist => {
         const dom = makeArtistCard(artist);
         const li = dom.querySelector('li');
         const star = dom.querySelector('.star');
         const userId = auth.currentUser.uid;
         const userFavorites = favoritesByUserRef.child(userId);
-        const favoriteArtist = userFavorites.child(artist.artist.artist_id);
+        const favoriteArtist = userFavorites.child(artist.artist_id || artist.artist.artist_id);
         favoriteArtist.once('value')
             .then(snapshot => {
                 const value = snapshot.val();
@@ -43,12 +41,12 @@ export default function loadArtists(artists) {
                 });
             }
         });
-        searchedArtistList.appendChild(dom);
+        ul.appendChild(dom);
     });
 }
 
-function clearList() {
-    while(searchedArtistList.children.length > 0) {
-        searchedArtistList.lastElementChild.remove();
+function clearList(ul) {
+    while(ul.children.length > 0) {
+        ul.lastElementChild.remove();
     }
 }
