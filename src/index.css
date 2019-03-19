@@ -3,3 +3,32 @@
     margin: 0;
     padding: 0;
 }
+
+header {
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+
+header img {
+    width: 300px;
+}
+
+#profile {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;  
+  border: solid 1px black;
+  width: 200px;
+  padding: 10px;
+}
+
+#profile img {
+    width: 20%;
+}
+
+#form {
+    text-align: center;
+}
