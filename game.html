@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verseParse(verse);</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="./src/game/game.css">
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div id="game-container">
+            <div id="score-container">
+                Score: <span id="score"></span>
+            </div>
+            <div id="timer-container">
+                Timer: <span id="timer"></span>
+            </div>
+            <div id="lyrics-container">
+                singy song
+            </div>
+            <form id="game-form">
+                <ul id="track-choices">
+                    <li>
+                        <label>
+                            <input type="radio" name="track-choice" value="track-one">
+                            Track 1
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="track-choice" value="track-two">
+                            Track 2
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="track-choice" value="track-three">
+                            Track 3
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="track-choice" value="track-four">
+                            Track 4
+                        </label>
+                    </li>
+                </ul>
+                <button>Now Sing It!</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="module" src="./src/game/game.js"></script>
+</body>
+</html>

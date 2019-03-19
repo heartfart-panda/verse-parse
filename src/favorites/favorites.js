@@ -1,7 +1,6 @@
 import { auth, favoritesByUserRef, librariesByUserRef } from '../firebase.js';
 import loadArtists from '../list-component.js';
-import { makeTrackSearchUrl } from '../make-search-url.js';
-
+import { makeTrackSearchUrl, makeLyricSearchUrl } from '../make-search-url.js';
 
 const favoritedArtistsList = document.getElementById('favorited-artists-list');
 const submitFavoriteArtistsButton = document.getElementById('submit-favorite-artists');
@@ -20,15 +19,22 @@ auth.onAuthStateChanged(user => {
                 const url = makeTrackSearchUrl(artist);
                 fetch(url)
                     .then(response => response.json())
-                    .then(result => {
-                        const trackList = result.message.body.track_list;
+                    .then(trackResult => {
+                        const trackList = trackResult.message.body.track_list;
                         trackList.forEach(track => {
                             const trackId = track.track.track_id;
                             const trackRef = artistLibraryRef.child(trackId);
-                            trackRef.set({ 
-                                track_id: track.track.track_id,
-                                track_name: track.track.track_name
-                            });
+                            const lyricSearchUrl = makeLyricSearchUrl(trackId);
+                            fetch(lyricSearchUrl)
+                                .then(response => response.json())
+                                .then(lyricResult => {
+                                    const lyric = lyricResult.message.body.lyrics.lyrics_body;
+                                    trackRef.set({ 
+                                        track_id: track.track.track_id,
+                                        track_name: track.track.track_name,
+                                        lyrics: lyric
+                                    });
+                                });
                         });
                     });
             });
