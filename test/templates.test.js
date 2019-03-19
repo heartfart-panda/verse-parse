@@ -6,7 +6,7 @@ const test = QUnit.test;
 
 QUnit.module('Templates');
 
-test('Test name', assert => {
+test('Make artist card', assert => {
     // Arrange
     const expected = `
         <li>
@@ -43,4 +43,23 @@ test('Test name', assert => {
 
     // Assert
     assert.htmlEqual(result, expected);
+});
+
+
+
+test('Make profile', assert => {
+    // Arrange
+    const expected = `
+        <div id="profile">
+            <img src="./assets/unknown-user.png" alt="Unknow User Image">
+            <p>Tommy</p>
+            <button>Sign Out</button>
+        </div>
+    `;
+
+    // Act
+    const result = makeProfile(user)
+
+    // Assert
+    assert.equal(result, expected);
 });
