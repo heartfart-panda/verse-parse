@@ -1,9 +1,13 @@
-import { makeSearchUrl } from '../src/make-search-url.js';
+import { makeSearchUrl, makeTrackSearchUrl } from '../src/make-search-url.js';
+
 const test = QUnit.test;
+const BASE_URL = 'https://api.musixmatch.com/ws/1.1/';
+const ARTIST_SEARCH = 'artist.search';
+const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com/';
+const API_KEY = 'c50fe663a733fdddb10284d0025a7487';
+const TRACK_SEARCH = 'track.search';
 
 QUnit.module('URL Construction for API fetching');
-
-const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com/';
 
 test('URL construction for API fetching', assert => {
     // Arrange
@@ -28,6 +32,20 @@ test('Return empty string if no search', assert => {
     };
     // Act
     const result = makeSearchUrl(queryOptions);
+
+    // Assert
+    assert.equal(result, expected);
+});
+
+
+test('make url for track fetch, based on artist id', assert => {
+    // Arrange
+    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/track.search?f_artist_id=123456&apikey=c50fe663a733fdddb10284d0025a7487&f_has_lyrics=1&f_lyrics_language=en&s_track_rating=desc&page=1&page_size=20';
+    const artist = {
+        artist_id: 123456
+    };
+    // Act
+    const result = makeTrackSearchUrl(artist);
 
     // Assert
     assert.equal(result, expected);
