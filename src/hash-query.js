@@ -13,9 +13,3 @@ export function readFromQuery(existingQuery) {
     };
     return queryOptions;
 }
-
-export function writePageToQuery(existingQuery, currentPageNumber) {
-    const searchParams = new URLSearchParams(existingQuery);
-    searchParams.set('page', currentPageNumber);
-    return searchParams.toString();
-}

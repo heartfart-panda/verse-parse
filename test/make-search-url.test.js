@@ -7,7 +7,7 @@ const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com/';
 
 test('URL construction for API fetching', assert => {
     // Arrange
-    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/artist.search?q_artist=kanye+west&apikey=c50fe663a733fdddb10284d0025a7487&page=1&page_size=5';
+    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/artist.search?q_artist=kanye+west&apikey=c50fe663a733fdddb10284d0025a7487&page=1&page_size=100';
     const queryOptions = {
         search: 'kanye west',
         page: 1

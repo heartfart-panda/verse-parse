@@ -11,7 +11,7 @@ export function makeSearchUrl(queryOptions) {
     url.searchParams.set('q_artist', queryOptions.search);
     url.searchParams.set('apikey', API_KEY);
     url.searchParams.set('page', queryOptions.page);
-    url.searchParams.set('page_size', 5);
+    url.searchParams.set('page_size', 100);
 
     return CORS_ANYWHERE + url.toString();
 }
