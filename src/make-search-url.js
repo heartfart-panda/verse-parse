@@ -25,7 +25,7 @@ export function makeTrackSearchUrl(artist) {
     url.searchParams.set('f_lyrics_language', 'en');
     url.searchParams.set('s_track_rating', 'desc');
     url.searchParams.set('page', 1);
-    url.searchParams.set('page_size', 20);
+    url.searchParams.set('page_size', 10);
 
     return CORS_ANYWHERE + url.toString();
 }
