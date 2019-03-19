@@ -1,11 +1,7 @@
-import { makeSearchUrl, makeTrackSearchUrl } from '../src/make-search-url.js';
+import { makeSearchUrl, makeTrackSearchUrl, makeLyricSearchUrl } from '../src/make-search-url.js';
 
 const test = QUnit.test;
-const BASE_URL = 'https://api.musixmatch.com/ws/1.1/';
-const ARTIST_SEARCH = 'artist.search';
 const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com/';
-const API_KEY = 'c50fe663a733fdddb10284d0025a7487';
-const TRACK_SEARCH = 'track.search';
 
 QUnit.module('URL Construction for API fetching');
 
@@ -46,6 +42,17 @@ test('make url for track fetch, based on artist id', assert => {
     };
     // Act
     const result = makeTrackSearchUrl(artist);
+
+    // Assert
+    assert.equal(result, expected);
+});
+
+test('make fetch url for lyrics', assert => {
+    // Arrange
+    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=16440100&apikey=c50fe663a733fdddb10284d0025a7487';
+    const trackID = 16440100;
+    // Act
+    const result = makeLyricSearchUrl(trackID);
 
     // Assert
     assert.equal(result, expected);

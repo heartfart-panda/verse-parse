@@ -3,6 +3,7 @@ const ARTIST_SEARCH = 'artist.search';
 const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com/';
 const API_KEY = 'c50fe663a733fdddb10284d0025a7487';
 const TRACK_SEARCH = 'track.search';
+const LYRICS_SEARCH = 'track.lyrics.get';
 
 export function makeSearchUrl(queryOptions) {
     if(!queryOptions.search) {
@@ -26,6 +27,14 @@ export function makeTrackSearchUrl(artist) {
     url.searchParams.set('s_track_rating', 'desc');
     url.searchParams.set('page', 1);
     url.searchParams.set('page_size', 10);
+
+    return CORS_ANYWHERE + url.toString();
+}
+
+export function makeLyricSearchUrl(trackID) {
+    const url = new URL(BASE_URL + LYRICS_SEARCH);
+    url.searchParams.set('track_id', trackID);
+    url.searchParams.set('apikey', API_KEY);
 
     return CORS_ANYWHERE + url.toString();
 }
