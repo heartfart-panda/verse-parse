@@ -7,20 +7,21 @@ const startButton = document.getElementById('start-button');
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
     const userLibraryRef = librariesByUserRef.child(userId);
-    let timer = 30;
+    let timer = 5;
     timerSpan.textContent = timer;
 
-    // startButton.addEventListener('click', () => {    
-    //     const gameTimer = setInterval(updateTimer, 1000);
+    startButton.addEventListener('click', () => {    
+        const gameTimer = setInterval(updateTimer, 1000);
         loadGame(userLibraryRef);
-    //     function updateTimer() {
-    //         timer--;
-    //         timerSpan.textContent = timer;
-    //         if(!timer) {
-    //             clearInterval(gameTimer);
-    //             clearGame();
-    //         }
-    //     }
-    // });
+        function updateTimer() {
+            timer--;
+            timerSpan.textContent = timer;
+            if(!timer) {
+                clearInterval(gameTimer);
+                clearGame();
+                window.location = './results.html';
+            }
+        }
+    });
 });
 const timerSpan = document.getElementById('timer');

@@ -2,7 +2,7 @@
 import { makeProfile } from '../src/profile-component.js';
 import { makeArtistCard } from '../src/list-component.js';
 import { makeTrackChoice, makeGameDisplay } from '../src/game/game-component.js';
-
+import { makeScoreboard } from '../src/results/scoreboard-component.js';
 const test = QUnit.test;
 
 QUnit.module('Templates');
@@ -106,6 +106,27 @@ test('make game template', assert => {
 
     // Act
     const result = makeGameDisplay();
+
+    // Assert
+    assert.htmlEqual(result, expected);
+});
+
+test('Scoreboard template', assert => {
+    // Arrange
+    const expected = `
+        <tr>
+            <td><img src="google.com">Cheri</td>
+            <td>4 points</td>
+        </tr>
+    `;
+    const user = {
+        displayName: 'Cheri',
+        photoURL: 'google.com',
+        topScore: 4
+    };
+
+    // Act
+    const result = makeScoreboard(user);
 
     // Assert
     assert.htmlEqual(result, expected);
