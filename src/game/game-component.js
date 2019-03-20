@@ -44,6 +44,7 @@ export function makeGameDisplay() {
 const gameContainer = document.getElementById('game-container');
 
 export default function loadGame(trackLibrary) {
+    clearGame();
     const randomTracks = pickFourRandomTracks(trackLibrary);
     const gameDisplayDom = makeGameDisplay();
     gameContainer.appendChild(gameDisplayDom);
@@ -54,7 +55,7 @@ export default function loadGame(trackLibrary) {
         const formDaddy = new FormData(gameForm);
         const answer = Number(formDaddy.get('track-choice'));
         if(correctId === answer) {
-            console.log('yay');
+            loadGame(trackLibrary);
         }
         else {
             console.log('boo');
@@ -69,4 +70,10 @@ function pickFourRandomTracks(trackLibrary) {
         randomTracks.push(trackLibrary.splice(random, 1)[0]);
     }
     return randomTracks;
+}
+
+function clearGame() {
+    while(gameContainer.children.length > 0) {
+        gameContainer.lastElementChild.remove();
+    }
 }
