@@ -43,6 +43,10 @@ export function makeGameDisplay() {
 
 const gameContainer = document.getElementById('game-container');
 
+let score = 0;
+const scoreSpan = document.getElementById('score');
+scoreSpan.textContent = score;
+
 export default function loadGame(userLibraryRef) {
     clearGame();
     userLibraryRef.once('value')
@@ -57,15 +61,13 @@ export default function loadGame(userLibraryRef) {
             const gameForm = document.getElementById('game-form');
             gameForm.addEventListener('submit', event => {
                 event.preventDefault();
-                console.log(trackLibrary.length);
                 const formDaddy = new FormData(gameForm);
                 const answer = Number(formDaddy.get('track-choice'));
-                if(correctId === answer) {
-                    loadGame(userLibraryRef);
+                if(correctId === answer) { 
+                    score++;
+                    scoreSpan.textContent = score;
                 }
-                else {
-                    console.log('boo');
-                }
+                loadGame(userLibraryRef);
             });
         });
 }

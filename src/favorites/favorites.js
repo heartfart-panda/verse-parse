@@ -32,12 +32,14 @@ auth.onAuthStateChanged(user => {
                             .then(response => response.json())
                             .then(lyricsResult => {
                                 const lyrics = lyricsResult.message.body.lyrics.lyrics_body;
-                                trackRef.set({ 
-                                    track_id: track.track.track_id,
-                                    track_name: track.track.track_name,
-                                    lyrics: lyrics.slice(0, -76),
-                                    artist_name: track.track.artist_name
-                                });
+                                if(lyrics) {
+                                    trackRef.set({ 
+                                        track_id: track.track.track_id,
+                                        track_name: track.track.track_name,
+                                        lyrics: lyrics.slice(0, -76),
+                                        artist_name: track.track.artist_name
+                                    });
+                                }
                             });
                     });
                 });
