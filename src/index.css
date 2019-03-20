@@ -90,7 +90,12 @@ ul#searched-artist-list {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+}
+ul#favorited-artists-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #searched-artist-list li {
@@ -103,6 +108,16 @@ ul#searched-artist-list {
     box-shadow: 1px 1px 1px 1px  rgb(137, 208, 231);;
 }
 
+#favorited-artists-list li {
+    border: 2px solid black;
+    background-color: rgb(211, 206, 206);
+    width: 50%;
+    padding: 5px;
+    margin: 10px;
+    list-style-type: none;
+    box-shadow: 1px 1px 1px 1px  rgb(137, 208, 231);;
+}
+
 .favorite {
-    color: gold;
+    color:  rgb(255, 69, 0);
 }
