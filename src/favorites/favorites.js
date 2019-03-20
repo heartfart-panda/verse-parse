@@ -24,15 +24,15 @@ auth.onAuthStateChanged(user => {
                         trackList.forEach(track => {
                             const trackId = track.track.track_id;
                             const trackRef = artistLibraryRef.child(trackId);
-                            const lyricSearchUrl = makeLyricSearchUrl(trackId);
-                            fetch(lyricSearchUrl)
+                            const lyricsSearchUrl = makeLyricSearchUrl(trackId);
+                            fetch(lyricsSearchUrl)
                                 .then(response => response.json())
-                                .then(lyricResult => {
-                                    const lyric = lyricResult.message.body.lyrics.lyrics_body;
+                                .then(lyricsResult => {
+                                    const lyrics = lyricsResult.message.body.lyrics.lyrics_body;
                                     trackRef.set({ 
                                         track_id: track.track.track_id,
                                         track_name: track.track.track_name,
-                                        lyrics: lyric,
+                                        lyrics: lyrics,
                                         artist_name: track.track.artist_name
                                     });
                                 });
