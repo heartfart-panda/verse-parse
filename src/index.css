@@ -6,31 +6,60 @@
 
 header {
     display: flex;
-    flex-flow: column nowrap;
-
+    /* flex-flow: column nowrap; */
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    align-items: center;
+    height: 15vh;
+    min-height: 100px;
 }
 
-header img {
-    width: 300px;
+header h1 {
+    display: flex;
+    align-self: center;   
+    padding: 20px; 
+}
+
+#nav-options {
+    background-color: black;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.yellow {
+    color: rgb(204, 194, 102);
+}
+
+.purple {
+    color: rgb(160, 78, 160);
+}
+
+.light-blue {
+    color: rgb(137, 208, 231);
 }
 
 #profile {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
   align-items: center;
-  align-self: flex-end;  
-  border: solid 1px black;
+  justify-self: flex-end;  
   width: 200px;
   padding: 10px;
+  margin: 20px;
 }
 
 #profile img {
+    display: flex;
     width: 20%;
+    border-radius: 100%;
 }
 
 #form {
     text-align: center;
+    padding: 20px;
 }
 
 #searched-artist-list li {
