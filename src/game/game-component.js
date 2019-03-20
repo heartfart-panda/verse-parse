@@ -11,15 +11,15 @@ export function makeTrackChoice(track) {
     return template.content;
 }
 
-const lyricsContainer = document.getElementById('lyrics-container');
-const trackChoices = document.getElementById('track-choices');
 let correctId = null;
 
 export function loadGameContent(tracks) {
     const random = Math.floor(Math.random() * 4);
+    const lyricsContainer = document.getElementById('lyrics-container');
     lyricsContainer.textContent = tracks[random].lyrics;
     correctId = tracks[random].track_id;
     
+    const trackChoices = document.getElementById('track-choices');
     tracks.forEach(track => {
         const dom = makeTrackChoice(track);
         trackChoices.appendChild(dom);
@@ -39,4 +39,34 @@ export function makeGameDisplay() {
     const template = document.createElement('template');
     template.innerHTML = html;
     return template.content;
+}
+
+const gameContainer = document.getElementById('game-container');
+
+export default function loadGame(trackLibrary) {
+    const randomTracks = pickFourRandomTracks(trackLibrary);
+    const gameDisplayDom = makeGameDisplay();
+    gameContainer.appendChild(gameDisplayDom);
+    loadGameContent(randomTracks);
+    const gameForm = document.getElementById('game-form');
+    gameForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const formDaddy = new FormData(gameForm);
+        const answer = Number(formDaddy.get('track-choice'));
+        if(correctId === answer) {
+            console.log('yay');
+        }
+        else {
+            console.log('boo');
+        }
+    });
+}
+
+function pickFourRandomTracks(trackLibrary) {
+    let randomTracks = [];
+    for(let i = 0; i < 4; i++) {
+        const random = Math.floor(Math.random() * trackLibrary.length);
+        randomTracks.push(trackLibrary.splice(random, 1)[0]);
+    }
+    return randomTracks;
 }
