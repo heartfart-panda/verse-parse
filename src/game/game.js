@@ -5,11 +5,5 @@ import { auth, librariesByUserRef } from '../firebase.js';
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
     const userLibraryRef = librariesByUserRef.child(userId);
-    userLibraryRef.once('value')
-        .then(snapshot => {
-            const value = snapshot.val();
-            const favoriteArtists = Object.values(value);
-            const trackLibrary = favoriteArtists.map(artist => Object.values(artist)).flat();
-            loadGame(trackLibrary);
-        });
+    loadGame(userLibraryRef);
 });

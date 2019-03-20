@@ -43,24 +43,31 @@ export function makeGameDisplay() {
 
 const gameContainer = document.getElementById('game-container');
 
-export default function loadGame(trackLibrary) {
+export default function loadGame(userLibraryRef) {
     clearGame();
-    const randomTracks = pickFourRandomTracks(trackLibrary);
-    const gameDisplayDom = makeGameDisplay();
-    gameContainer.appendChild(gameDisplayDom);
-    loadGameContent(randomTracks);
-    const gameForm = document.getElementById('game-form');
-    gameForm.addEventListener('submit', event => {
-        event.preventDefault();
-        const formDaddy = new FormData(gameForm);
-        const answer = Number(formDaddy.get('track-choice'));
-        if(correctId === answer) {
-            loadGame(trackLibrary);
-        }
-        else {
-            console.log('boo');
-        }
-    });
+    userLibraryRef.once('value')
+        .then(snapshot => {
+            const value = snapshot.val();
+            const favoriteArtists = Object.values(value);
+            const trackLibrary = favoriteArtists.map(artist => Object.values(artist)).flat();
+            const randomTracks = pickFourRandomTracks(trackLibrary);
+            const gameDisplayDom = makeGameDisplay();
+            gameContainer.appendChild(gameDisplayDom);
+            loadGameContent(randomTracks);
+            const gameForm = document.getElementById('game-form');
+            gameForm.addEventListener('submit', event => {
+                event.preventDefault();
+                console.log(trackLibrary.length);
+                const formDaddy = new FormData(gameForm);
+                const answer = Number(formDaddy.get('track-choice'));
+                if(correctId === answer) {
+                    loadGame(userLibraryRef);
+                }
+                else {
+                    console.log('boo');
+                }
+            });
+        });
 }
 
 function pickFourRandomTracks(trackLibrary) {
