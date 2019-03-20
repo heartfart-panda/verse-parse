@@ -11,18 +11,39 @@
 </head>
 <body>
     <header>
-        <img src="./assets/lyrics-logo.jpg">
-        <h1>Verse Parse</h1>
+        <div id="verse-parse">
+            <h1><span class="yellow">verseParse</span>
+                <span class="purple">(</span>
+                <span class="light-blue">verse</span>
+                <span class="purple">)</span>;</h1>
+        </div>
     </header>
     <main>
-        <form id="form">
-            <label>
-                Search Artist: 
-                <input type="text" id="artist-search">
-                <button>Yeet</button>
-            </label>
-        </form>
-        <ul id="searched-artist-list"></ul>
+        <div id="nav-options">
+            <a href="./favorites.html">
+                <span class="light-blue">favorites.add</span>
+                <span class="purple">()</span>
+            </a>
+        </div>
+        <section id="search-section">
+            <form id="form">
+                <label>
+                    <span class="yellow">Search</span>
+                    <span class="purple">(</span>
+                    <span class="light-blue">artist</span>
+                    <span class="purple">)</span> 
+                    <span class="white"> = [ </span>
+
+                    <input type="text" id="artist-search">
+                    
+                    <span class="white"> ] </span>
+                   
+                    <button>Yeet</button>
+                    
+                </label>
+            </form>
+            <ul id="searched-artist-list"></ul>
+        </section>
     </main>
     <footer>
     </footer>
