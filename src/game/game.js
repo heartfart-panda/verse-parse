@@ -23,3 +23,16 @@ function pickFourRandomTracks(trackLibrary) {
     }
     return randomTracks;
 }
+
+const gameForm = document.getElementById('game-form');
+gameForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const formDaddy = new FormData(gameForm);
+    const answer = Number(formDaddy.get('track-choice'));
+    if(correctId === answer) {
+        console.log('yay');
+    }
+    else {
+        console.log('boo');
+    }
+});

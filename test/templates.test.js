@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { makeProfile } from '../src/profile-component.js';
 import { makeArtistCard } from '../src/list-component.js';
-import { makeTrackChoice } from '../src/game/game-component.js';
+import { makeTrackChoice, makeGameDisplay } from '../src/game/game-component.js';
 
 const test = QUnit.test;
 
@@ -87,6 +87,25 @@ test('MakeTrackChoice', assert => {
     
     // Act
     const result = makeTrackChoice(track);
+
+    // Assert
+    assert.htmlEqual(result, expected);
+});
+
+test('make game template', assert => {
+    // Arrange
+    const expected = `
+        <div>
+            <div id="lyrics-container"></div>
+            <form id="game-form">
+                <ul id="track-choices"></ul>
+                <button>Now Sing It!</button>
+            </form>
+        </div>  
+    `;
+
+    // Act
+    const result = makeGameDisplay();
 
     // Assert
     assert.htmlEqual(result, expected);
