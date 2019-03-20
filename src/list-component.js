@@ -15,33 +15,35 @@ export function makeArtistCard(artist) {
 export default function loadArtists(artists, ul) {
     clearList(ul);
     artists.forEach(artist => {
-        const dom = makeArtistCard(artist);
-        const li = dom.querySelector('li');
-        const star = dom.querySelector('.star');
-        const userId = auth.currentUser.uid;
-        const userFavorites = favoritesByUserRef.child(userId);
-        const favoriteArtist = userFavorites.child(artist.artist_id || artist.artist.artist_id);
-        favoriteArtist.once('value')
-            .then(snapshot => {
-                const value = snapshot.val();
-                if(value) {
+        if(artist.artist_id || artist.artist.artist_rating > 50) {
+            const dom = makeArtistCard(artist);
+            const li = dom.querySelector('li');
+            const star = dom.querySelector('.star');
+            const userId = auth.currentUser.uid;
+            const userFavorites = favoritesByUserRef.child(userId);
+            const favoriteArtist = userFavorites.child(artist.artist_id || artist.artist.artist_id);
+            favoriteArtist.once('value')
+                .then(snapshot => {
+                    const value = snapshot.val();
+                    if(value) {
+                        star.classList.add('favorite');
+                    }
+                });
+            li.addEventListener('click', () => {
+                if(star.classList.contains('favorite')) {
+                    star.classList.remove('favorite');
+                    favoriteArtist.remove();
+                }
+                else {
                     star.classList.add('favorite');
+                    favoriteArtist.set({
+                        artist_id: artist.artist.artist_id,
+                        artist_name: artist.artist.artist_name
+                    });
                 }
             });
-        li.addEventListener('click', () => {
-            if(star.classList.contains('favorite')) {
-                star.classList.remove('favorite');
-                favoriteArtist.remove();
-            }
-            else {
-                star.classList.add('favorite');
-                favoriteArtist.set({
-                    artist_id: artist.artist.artist_id,
-                    artist_name: artist.artist.artist_name
-                });
-            }
-        });
-        ul.appendChild(dom);
+            ul.appendChild(dom);
+        }
     });
 }
 

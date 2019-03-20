@@ -1,8 +1,6 @@
 import { makeGameDisplay } from './game-component.js';
-import dummydata from '../../data/dummy-lyrics-data.js';
 import { auth, librariesByUserRef } from '../firebase.js';
 
-makeGameDisplay(dummydata);
 
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
@@ -12,6 +10,16 @@ auth.onAuthStateChanged(user => {
             const value = snapshot.val();
             const favoriteArtists = Object.values(value);
             const trackLibrary = favoriteArtists.map(artist => Object.values(artist)).flat();
-            console.log(trackLibrary);
+            const randomTracks = pickFourRandomTracks(trackLibrary);
+            makeGameDisplay(randomTracks);
         });
 });
+
+function pickFourRandomTracks(trackLibrary) {
+    let randomTracks = [];
+    for(let i = 0; i < 4; i++) {
+        const random = Math.floor(Math.random() * trackLibrary.length);
+        randomTracks.push(trackLibrary.splice(random, 1)[0]);
+    }
+    return randomTracks;
+}
