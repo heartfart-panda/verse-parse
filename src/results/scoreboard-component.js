@@ -9,3 +9,12 @@ export function makeScoreboard(user) {
     template.innerHTML = html;
     return template.content;
 }
+
+const playerTopScores = document.getElementById('player-top-scores');
+
+export default function loadScoreboard(users) {
+    users.forEach(user => {
+        const userScoreDom = makeScoreboard(user);
+        playerTopScores.appendChild(userScoreDom);
+    });
+}
