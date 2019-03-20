@@ -16,7 +16,14 @@ let correctId = null;
 export function loadGameContent(tracks) {
     const random = Math.floor(Math.random() * 4);
     const lyricsContainer = document.getElementById('lyrics-container');
-    lyricsContainer.textContent = tracks[random].lyrics;
+    const lyrics = tracks[random].lyrics;
+    const slicedLyrics = sliceLyrics(lyrics);
+    
+    slicedLyrics.forEach(line => {
+        const template = document.createElement('template');
+        template.innerHTML = `<p>${line}</p>`;
+        lyricsContainer.append(template.content);
+    });
     correctId = tracks[random].track_id;
     
     const trackChoices = document.getElementById('track-choices');
@@ -43,9 +50,9 @@ export function makeGameDisplay() {
 
 const gameContainer = document.getElementById('game-container');
 
-let score = 0;
-const scoreSpan = document.getElementById('score');
-scoreSpan.textContent = score;
+// let score = 0;
+// const scoreSpan = document.getElementById('score');
+// scoreSpan.textContent = score;
 
 export default function loadGame(userLibraryRef) {
     clearGame();
@@ -85,4 +92,12 @@ export function clearGame() {
     while(gameContainer.children.length > 0) {
         gameContainer.lastElementChild.remove();
     }
+}
+
+function sliceLyrics(lyrics) {
+    const splitLyrics = lyrics.split('\n');
+    const filteredLyrics = splitLyrics.filter(line => line);
+    const random = Math.floor(Math.random() * (filteredLyrics.length - 5));
+    const slicedLyrics = filteredLyrics.slice(random, random + 5);
+    return slicedLyrics;
 }

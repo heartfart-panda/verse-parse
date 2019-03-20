@@ -10,17 +10,17 @@ auth.onAuthStateChanged(user => {
     let timer = 30;
     timerSpan.textContent = timer;
 
-    startButton.addEventListener('click', () => {    
-        const gameTimer = setInterval(updateTimer, 1000);
+    // startButton.addEventListener('click', () => {    
+    //     const gameTimer = setInterval(updateTimer, 1000);
         loadGame(userLibraryRef);
-        function updateTimer() {
-            timer--;
-            timerSpan.textContent = timer;
-            if(!timer) {
-                clearInterval(gameTimer);
-                clearGame();
-            }
-        }
-    });
+    //     function updateTimer() {
+    //         timer--;
+    //         timerSpan.textContent = timer;
+    //         if(!timer) {
+    //             clearInterval(gameTimer);
+    //             clearGame();
+    //         }
+    //     }
+    // });
 });
 const timerSpan = document.getElementById('timer');
