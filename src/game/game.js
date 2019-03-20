@@ -7,7 +7,7 @@ const startButton = document.getElementById('start-button');
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
     const userLibraryRef = librariesByUserRef.child(userId);
-    let timer = 30;
+    let timer = 5;
     timerSpan.textContent = timer;
 
     startButton.addEventListener('click', () => {    
@@ -19,6 +19,7 @@ auth.onAuthStateChanged(user => {
             if(!timer) {
                 clearInterval(gameTimer);
                 clearGame();
+                window.location = './results.html';
             }
         }
     });

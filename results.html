@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="./src/results/results.css">
+</head>
+<body>
+    <header>
+        verseParse(verse);
+    </header>
+    <main>
+        <section>
+            You scored: 
+            <span id="user-score">5</span>
+            points
+        </section>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Top Score</th>
+                    </tr>
+                </thead>
+                <tbody id="player-top-scores">
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script type="module" src="./src/results/results.js"></script>
+</body>
+</html>
