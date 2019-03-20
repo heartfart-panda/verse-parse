@@ -81,7 +81,7 @@ function pickFourRandomTracks(trackLibrary) {
     return randomTracks;
 }
 
-function clearGame() {
+export function clearGame() {
     while(gameContainer.children.length > 0) {
         gameContainer.lastElementChild.remove();
     }
