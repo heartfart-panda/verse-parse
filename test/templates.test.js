@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { makeProfile } from '../src/profile-component.js';
 import { makeArtistCard } from '../src/list-component.js';
+import { makeTrackChoice } from '../src/game/game-component.js';
 
 const test = QUnit.test;
 
@@ -66,19 +67,6 @@ test('Make profile', assert => {
     // Assert
     assert.htmlEqual(result, expected);
 });
-
-function makeTrackChoice(track) {
-    const html =  `
-        <li>
-            <label>
-                <input type="radio" name="track-choice" value="${track.track_id}">
-                ${track.track_name} by ${track.artist_name}
-            </label>
-        </li>`;
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content;
-}
 
 test('MakeTrackChoice', assert => {
     // Arrange
