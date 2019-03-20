@@ -66,3 +66,40 @@ test('Make profile', assert => {
     // Assert
     assert.htmlEqual(result, expected);
 });
+
+function makeTrackChoice(track) {
+    const html =  `
+        <li>
+            <label>
+                <input type="radio" name="track-choice" value="${track.track_id}">
+                ${track.track_name} by ${track.artist_name}
+            </label>
+        </li>`;
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content;
+}
+
+test('MakeTrackChoice', assert => {
+    // Arrange
+    const expected = `
+        <li>
+            <label>
+                <input type="radio" name="track-choice" value="3411415">
+                I Need to Know by Kanye West
+            </label>
+        </li>
+    `;
+    const track =   {
+        "lyrics": "[Chorus]\nI need to know, you down to do whatever?\nDown to get it poppin? Down to get topless, ohh\nI need to know, if you about cutting\nOr you about frontin, baby I need to know\n\n[Verse 1]\nI spent my last 8 checks's on a neck-e-lace\nSo I better get some sex for this, shiit\nShe wanna sip up on the cris-e-cris\nLike it's Christ-e-mas and I'm St. Nicholas\nI got her and her sister innn\nThat white benz, dyke twins\nI aint gon lie they only fives but together they ten's\nAnd would I do em again? Hmmm, hmmm?\nIt's like old folks pissin cuz it all depends\nAnd it's no coke sniffin just juice and gin\nGrey Goose to get you loose then hit the nigga producing\nThe track that got you movin, this track got you movin\nSo crazy you don't know what you doin\nYou been telling them jokes, and its not a rumor\n...\n\n******* This Lyrics is NOT for Commercial use *******\n(1409618287272)",
+        "track_id": 3411415,
+        "track_name": "I Need to Know",
+        "artist_name": "Kanye West"
+    }
+    
+    // Act
+    const result = makeTrackChoice(track);
+
+    // Assert
+    assert.htmlEqual(result, expected);
+});

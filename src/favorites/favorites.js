@@ -32,7 +32,8 @@ auth.onAuthStateChanged(user => {
                                     trackRef.set({ 
                                         track_id: track.track.track_id,
                                         track_name: track.track.track_name,
-                                        lyrics: lyric
+                                        lyrics: lyric,
+                                        artist_name: track.track.artist_name
                                     });
                                 });
                         });
