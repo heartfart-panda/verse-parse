@@ -2,6 +2,8 @@
 import { makeProfile } from '../src/profile-component.js';
 import { makeArtistCard } from '../src/list-component.js';
 import { makeTrackChoice, makeGameDisplay } from '../src/game/game-component.js';
+import { makeHeader } from '../src/header-component.js';
+
 
 const test = QUnit.test;
 
@@ -108,5 +110,21 @@ test('make game template', assert => {
     const result = makeGameDisplay();
 
     // Assert
+    assert.htmlEqual(result, expected);
+});
+
+test('make header template', assert => {
+    //arrange
+    const expected = `
+        <div id="verse-parse">
+            <h1><span class="yellow">verseParse</span>
+                <span class="purple">(</span>
+                <span class="light-blue">verse</span>
+                <span class="purple">)</span>;</h1>
+        </div>
+    `;
+    //act
+    const result = makeHeader();
+    //assert
     assert.htmlEqual(result, expected);
 });
