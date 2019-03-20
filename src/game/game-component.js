@@ -50,9 +50,9 @@ export function makeGameDisplay() {
 
 const gameContainer = document.getElementById('game-container');
 
-let score = 0;
-const scoreSpan = document.getElementById('score');
-scoreSpan.textContent = score;
+// let score = 0;
+// const scoreSpan = document.getElementById('score');
+// scoreSpan.textContent = score;
 
 export default function loadGame(userLibraryRef) {
     clearGame();

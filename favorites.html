@@ -8,13 +8,20 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
     <link rel="stylesheet" href="./src/favorites/favorites.css">
+    <link rel="stylesheet" href="./src/index.css">
 </head>
 <body>
-    <header>
-        <a href="./index.html">Go Home</a>
-        <h1>verseParse(verse);</h1>
+    <header id="header-container">
+        <!-- <h1>verseParse(verse);</h1> -->
     </header>
     <main>
+        <div id="nav-options">
+            <a href="./index.html">
+                <span class="light-blue">Home</span>
+                <span class="purple">()</span>
+                <span class="white">;</span>
+            </a>
+        </div>
         <ul id="favorited-artists-list"></ul>
         <button id="submit-favorite-artists">Submit Favorite Artists</button>
         <button id="game-button">verseParse(verse);</button>

@@ -5,10 +5,11 @@ import { makeSearchUrl } from './make-search-url.js';
 import { readFromQuery } from './hash-query.js';
 import loadDisplay from './display-component.js';
 import loadProfile from './profile-component.js';
+import loadHeader from './header-component.js';
 
 const searchedArtistList = document.getElementById('searched-artist-list');
-
 loadProfile();
+loadHeader();
 loadDisplay();
 
 window.addEventListener('hashchange', () => {
