@@ -14,6 +14,11 @@ export function makeArtistCard(artist) {
 
 export default function loadArtists(artists, ul) {
     clearList(ul);
+    if(artists[0].artist) {
+        if(artists.every(artist => artist.artist.artist_rating <= 50)) {
+            alert('No results found');
+        }
+    }
     artists.forEach(artist => {
         if(artist.artist_id || artist.artist.artist_rating > 50) {
             const dom = makeArtistCard(artist);
