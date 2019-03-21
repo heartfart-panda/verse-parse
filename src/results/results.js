@@ -20,5 +20,8 @@ usersRef.once('value')
     .then(snapshot => {
         const value = snapshot.val();
         const users = Object.values(value);
+        users.sort((a, b) => {
+            return b.topScore - a.topScore; 
+        });
         loadScoreboard(users);
     });
