@@ -1,7 +1,9 @@
 import loadProfile from '../profile-component.js';
 import { usersRef, auth } from '../firebase.js';
 import loadScoreboard from './scoreboard-component.js';
+import loadHeader from '../header-component.js';
 
+loadHeader();
 loadProfile();
 
 auth.onAuthStateChanged(user => {

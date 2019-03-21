@@ -1,7 +1,7 @@
 export function makeScoreboard(user) {
     const html = `
         <tr>
-            <td><img src="${user.photoURL}">${user.displayName}</td>
+            <td><div><img src="${user.photoURL}">${user.displayName}</div></td>
             <td>${user.topScore} points</td>
         </tr>
     `;

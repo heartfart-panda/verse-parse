@@ -6,6 +6,7 @@
 
 body {
     background-color: rgb(68, 67, 67);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 header {
@@ -17,6 +18,7 @@ header {
     align-items: center;
     height: 15vh;
     min-height: 100px;
+    font-family: 'Special Elite', cursive;
 }
 
 header h1 {
@@ -24,13 +26,6 @@ header h1 {
     align-self: center;   
     padding: 20px; 
     font-size: 3.5em;
-}
-
-#nav-options {
-    background-color: black;
-    height: 5vh;
-    font-weight: bold;
-    font-size: 1.1em;
 }
 
 .yellow {
@@ -47,6 +42,10 @@ header h1 {
 
 .white {
     color: white;
+}
+
+.dark-blue {
+    color: rgb(86, 156, 214);
 }
 
 #profile {
@@ -74,12 +73,29 @@ header h1 {
 #form {
     text-align: center;
     padding: 20px;
+    margin-top: 2vh;
 }
 
 #form span {
     font-weight: bolder;
     font-size: 1.5em;
 }
+
+#form input {
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(228, 245, 253);
+ }
+ 
+#form button {
+    margin-top: 2vh;
+    padding: 8px;
+    width: 25vw;
+    border-radius: 10px;
+    background: black;
+    border-color: rgb(228, 245, 253);
+ }
 
 #artist-search {
     height: 1.8em;
@@ -92,10 +108,9 @@ ul#searched-artist-list {
     align-items: center;
 }
 
-
 #searched-artist-list li {
     border: 2px solid black;
-    background-color: rgb(211, 206, 206);
+    background-color: rgb(228, 245, 253);
     width: 50%;
     padding: 5px;
     margin: 10px;
@@ -103,11 +118,14 @@ ul#searched-artist-list {
     box-shadow: 1px 1px 1px 1px  rgb(137, 208, 231);;
 }
 
-
 .favorite {
     color:  rgb(255, 69, 0);
 }
 
 .none {
     display: none;
+}
+
+button:hover {
+    color: red;
 }

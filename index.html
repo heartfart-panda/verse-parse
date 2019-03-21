@@ -7,33 +7,28 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan%7CCourgette%7CSpecial+Elite" rel="stylesheet">
     <link rel="stylesheet" href="./src/index.css">
     <link rel="stylesheet" href="./src/favorites/favorites.css">
 </head>
 <body>
     <header id="header-container"></header>
     <main>
-        <div id="nav-options">
-            <a href="./favorites.html">
-                <span class="light-blue">showFavorites</span><span class="purple">()</span><span class="white">;</span>
-            </a>
-        </div>
         <section id="search-section">
             <form id="form">
                 <label>
-                    <span class="yellow">Search</span>
-                    <span class="purple">(</span>
+                    <span class="dark-blue">const </span>
                     <span class="light-blue">artist</span>
-                    <span class="purple">)</span> 
-                    <span class="white"> = [ </span>
-
+                    <span class="white">=</span>
                     <input type="text" id="artist-search">
-                    
-                    <span class="white"> ] </span>
-                   
-                    <button>Yeet</button>
-                    
+                    <span class="white">;</span>
                 </label>
+                <p>
+                    <button>
+                        <span class="yellow">search</span><span class="purple">(</span><span class="light-blue">artist</span><span class="purple">)</span><span class="white">;</span>
+                    </button>
+                </p>
+                    
             </form>
             <ul id="searched-artist-list"></ul>
         </section>
