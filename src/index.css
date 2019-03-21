@@ -28,7 +28,7 @@ header h1 {
 
 #nav-options {
     background-color: black;
-    padding: 10px;
+    height: 5vh;
     font-weight: bold;
     font-size: 1.1em;
 }
@@ -68,7 +68,7 @@ header h1 {
 #search-section {
     margin-bottom: 0;
     padding-bottom: 0;
-    height: 100vh;
+    height: 80vh;
 }
 
 #form {
