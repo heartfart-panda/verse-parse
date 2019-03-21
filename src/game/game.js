@@ -11,7 +11,7 @@ loadProfile();
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
     const userLibraryRef = librariesByUserRef.child(userId);
-    let timer = 60;
+    let timer = 999999999;
     timerSpan.textContent = timer;
 
     startButton.addEventListener('click', () => {    

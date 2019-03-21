@@ -19,6 +19,7 @@ header {
     height: 15vh;
     min-height: 100px;
     font-family: 'Special Elite', cursive;
+    box-shadow: 0 5px 15px black;
 }
 
 header h1 {
@@ -58,6 +59,16 @@ header h1 {
   margin: 20px;
 }
 
+#profile button {
+    padding: 8px;
+    border-radius: 10px;
+    background: rgb(128, 128, 128);
+    color: white;
+}
+
+#profile p {
+    margin: 1vh;
+}
 #profile img {
     display: flex;
     width: 20%;
@@ -124,8 +135,4 @@ ul#searched-artist-list {
 
 .none {
     display: none;
-}
-
-button:hover {
-    color: red;
 }

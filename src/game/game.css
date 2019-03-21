@@ -5,6 +5,12 @@
     align-items: center;
 }
 
+#game-status {
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+}
+
 #score-container {
     color: white;
     font-size: 1.5em;
@@ -20,7 +26,47 @@
 }
 
 #lyrics-container {
-    font-family: Merriweather, serif;
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: 1.8em;
+    background: rgba(0, 0, 0, 0.794);
+    padding: 1vw;
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px 1px grey;
+    height: 35vh;
+}
+
+#lyrics-container p {
+    margin: 2vh;
+}
+
+#track-choices li {
+    list-style: none;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 5px;
+    margin-top: 2vh;
+    padding-left: 1vw;
+    border-radius: 5px;
+    font-family: 'ZCOOL XiaoWei', serif;
+    box-shadow: 3px 3px 5px 1px grey;
+    background: silver;
+    cursor: pointer;
+    color: black;
+}
+
+#track-choices .track-title {
+    font-size: 1.75em;
+}
+
+#track-choices .track-artist {
+    font-size: 1.25em;
+}
+
+#track-choices li:hover {
+    background: rgb(175, 175, 175);
+}
+
+#track-choices li:active {
+    background: rgb(160, 78, 160);
 }
 
 #start-button {
@@ -28,11 +74,32 @@
     font-weight: bold;
     padding: 8px;
     border-radius: 10px;
-    margin-left: 15px;
 }
 
 #game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 75vh;
     align-self: center;
     color: white;
-    border: 5px solid red;
+    background: rgba(255, 255, 255, 0.50);
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 3px black;
+    font-weight: 500;
+}
+
+#game-container button:hover {
+    background: rgb(204, 194, 102);
+}
+
+#game {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

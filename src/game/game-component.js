@@ -1,8 +1,21 @@
 export function makeTrackChoice(track) {
     const html = `
         <li value="${track.track_id}">
-            ${track.track_name} by ${track.artist_name}
+            <p class="track-title">${track.track_name}</p> 
+            <p class="track-artist">by ${track.artist_name}</p>
         </li>`;
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content;
+}
+
+export function makeGameDisplay() {
+    const html = `
+        <div id="game">
+            <div id="lyrics-container"></div>
+            <ul id="track-choices"></ul>
+        </div>  
+    `;
     const template = document.createElement('template');
     template.innerHTML = html;
     return template.content;
@@ -37,18 +50,6 @@ export function loadGameContent(tracks, userLibraryRef) {
         });
         trackChoices.appendChild(dom);
     });
-}
-
-export function makeGameDisplay() {
-    const html = `
-        <div>
-            <div id="lyrics-container"></div>
-            <ul id="track-choices"></ul>
-        </div>  
-    `;
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content;
 }
 
 const gameContainer = document.getElementById('game-container');
