@@ -121,3 +121,7 @@ ul#favorited-artists-list {
 .favorite {
     color:  rgb(255, 69, 0);
 }
+
+.none {
+    display: none;
+}
