@@ -10,22 +10,23 @@ import loadHeader from './header-component.js';
 const searchedArtistList = document.getElementById('searched-artist-list');
 loadProfile();
 loadHeader();
-loadDisplay();
+loadResult();
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('hashchange', loadResult);
+
+function loadResult() {
     loadDisplay();
     const existingQuery = window.location.hash.slice(1);
     const queryOptions = readFromQuery(existingQuery);
     const url = makeSearchUrl(queryOptions);
 
-    fetch(url) 
+    fetch(url)
         .then(response => response.json())
         .then(result => {
             if(!result.message.body.artist_list.length) {
                 alert('no results found');
-            }
-            else {
+            } else {
                 loadArtists(result.message.body.artist_list, searchedArtistList);
             }
         });
-});
+}
