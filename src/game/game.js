@@ -1,8 +1,13 @@
 import loadGame from './game-component.js';
 import { clearGame } from './game-component.js';
 import { auth, librariesByUserRef } from '../firebase.js';
+import loadHeader from '../../src/header-component.js';
+import loadProfile from '../profile-component.js';
+
 const startButton = document.getElementById('start-button');
 
+loadHeader();
+loadProfile();
 
 auth.onAuthStateChanged(user => {
     const userId = user.uid;

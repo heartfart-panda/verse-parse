@@ -2,6 +2,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* font-family: 'Baloo Chettan', cursive; */
+    font-family: 'Special Elite', cursive;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
 }
 
 body {
@@ -17,6 +20,10 @@ header {
     align-items: center;
     height: 15vh;
     min-height: 100px;
+}
+
+button:hover {
+    color: red;
 }
 
 header h1 {
@@ -74,7 +81,25 @@ header h1 {
 #form {
     text-align: center;
     padding: 20px;
+    margin-top: 70px;
 }
+
+#form input {
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#form button {
+    font-size: 1.5em;
+    background-color: rgb(235, 235, 110);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* span.white.bigger-brackets {
+    font-size: 20px;
+} */
 
 #form span {
     font-weight: bolder;
@@ -100,20 +125,25 @@ ul#favorited-artists-list {
 
 #searched-artist-list li {
     border: 2px solid black;
-    background-color: rgb(211, 206, 206);
+    /* background-color: rgb(211, 206, 206); */
+    background-color: rgb(228, 245, 253);
+    font-size: 1.5em;
+    font-weight: bold;
     width: 50%;
-    padding: 5px;
-    margin: 10px;
+    padding: 10px;
+    margin: 18px;
     list-style-type: none;
     box-shadow: 1px 1px 1px 1px  rgb(137, 208, 231);;
 }
 
 #favorited-artists-list li {
     border: 2px solid black;
-    background-color: rgb(211, 206, 206);
+    background-color: rgb(228, 245, 253);
+    font-size: 1.5em;
+    font-weight: bold;
     width: 50%;
-    padding: 5px;
-    margin: 10px;
+    padding: 10px;
+    margin: 18px;
     list-style-type: none;
     box-shadow: 1px 1px 1px 1px  rgb(137, 208, 231);;
 }
@@ -121,3 +151,4 @@ ul#favorited-artists-list {
 .favorite {
     color:  rgb(255, 69, 0);
 }
+
