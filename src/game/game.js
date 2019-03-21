@@ -32,7 +32,7 @@ auth.onAuthStateChanged(user => {
                             topScoreRef.set(recentScore);
                         }
                     });
-                // window.location = './results.html';
+                window.location = './results.html';
 
             }
         }

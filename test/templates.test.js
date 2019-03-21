@@ -126,6 +126,9 @@ test('make header template', assert => {
     //act
     const result = makeHeader();
     //assert
+    assert.htmlEqual(result, expected);
+});
+  
 test('Scoreboard template', assert => {
     // Arrange
     const expected = `
