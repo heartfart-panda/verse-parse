@@ -8,6 +8,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
     <link rel="stylesheet" href="./src/index.css">
+    <link rel="stylesheet" href="./src/favorites/favorites.css">
 </head>
 <body>
     <header id="header-container"></header>
@@ -36,9 +37,18 @@
             </form>
             <ul id="searched-artist-list"></ul>
         </section>
+        <article>
+            <h2>Favorite Artists</h2>
+            <ul id="favorited-artists-list"></ul>
+            <button id="submit-favorite-artists">Submit Favorite Artists</button>
+            <a href="./game.html">
+                <button id="game-button" class="none">Start Game</button>
+            </a>
+        </article>
     </main>
     <footer>
     </footer>
     <script type="module" src="./src/index.js"></script>
+    <script type="module" src="./src/favorites/favorites.js"></script>
 </body>
 </html>

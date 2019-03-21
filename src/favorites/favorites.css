@@ -1,0 +1,42 @@
+article {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 20vw;
+    border: 2px solid green;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article ul {
+    width: 100%;
+    background: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    position: absolute;
+    top: 5vh;
+    bottom: 7vh;
+}
+
+article ::-webkit-scrollbar {
+    width: 0;
+}
+article li {
+    border: 2px solid black;
+    background-color: rgb(211, 206, 206);
+    width: 90%;
+    padding: 5px;
+    margin: 10px;
+    list-style-type: none;
+    box-shadow: 1px 1px 1px 1px  rgb(137, 208, 231);
+}
+
+article button {
+    position: absolute;
+    bottom: 3vh;
+}

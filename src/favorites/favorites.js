@@ -1,13 +1,10 @@
 import { auth, favoritesByUserRef, librariesByUserRef } from '../firebase.js';
 import loadArtists from '../list-component.js';
 import { makeTrackSearchUrl, makeLyricSearchUrl } from '../make-search-url.js';
-import loadHeader from '../header-component.js';
 
 const favoritedArtistsList = document.getElementById('favorited-artists-list');
 const submitFavoriteArtistsButton = document.getElementById('submit-favorite-artists');
 const gameButton = document.getElementById('game-button');
-
-loadHeader();
 
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
