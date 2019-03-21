@@ -15,11 +15,12 @@ ui.start('#firebaseui-auth-container', {
     callbacks: {
         signInSuccessWithAuthResult(authResult) {
             const user = authResult.user;
+            const photo = user.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png';
             usersRef.child(user.uid)
                 .set({
                     uid: user.uid,
                     displayName: user.displayName,
-                    photoURL: user.photoURL
+                    photoURL: photo
                 });
             return true;
         }

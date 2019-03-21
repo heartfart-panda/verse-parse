@@ -3,7 +3,7 @@ import { auth } from './firebase.js';
 export function makeProfile(user) {
     const html = `
         <div id="profile">
-            <img src="${user.photoURL}" alt="User Image">
+            <img src="${user.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png'}" alt="User Image">
             <p>${user.displayName}</p>
             <button>Sign Out</button>
         </div>
