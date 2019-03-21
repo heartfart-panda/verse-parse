@@ -1,10 +1,7 @@
 export function makeTrackChoice(track) {
     const html = `
-        <li>
-            <label>
-                <input type="radio" name="track-choice" value="${track.track_id}">
-                ${track.track_name} by ${track.artist_name}
-            </label>
+        <li value="${track.track_id}">
+            ${track.track_name} by ${track.artist_name}
         </li>`;
     const template = document.createElement('template');
     template.innerHTML = html;
@@ -13,7 +10,7 @@ export function makeTrackChoice(track) {
 
 let correctId = null;
 
-export function loadGameContent(tracks) {
+export function loadGameContent(tracks, userLibraryRef) {
     const random = Math.floor(Math.random() * 4);
     const lyricsContainer = document.getElementById('lyrics-container');
     const lyrics = tracks[random].lyrics;
@@ -29,6 +26,15 @@ export function loadGameContent(tracks) {
     const trackChoices = document.getElementById('track-choices');
     tracks.forEach(track => {
         const dom = makeTrackChoice(track);
+        const li = dom.querySelector('li');
+        li.addEventListener('click', () => {
+            const answer = li.value;
+            if(correctId === answer) { 
+                score++;
+                scoreSpan.textContent = score;
+            }
+            loadGame(userLibraryRef);
+        });
         trackChoices.appendChild(dom);
     });
 }
@@ -37,10 +43,7 @@ export function makeGameDisplay() {
     const html = `
         <div>
             <div id="lyrics-container"></div>
-            <form id="game-form">
-                <ul id="track-choices"></ul>
-                <button>Now Sing It!</button>
-            </form>
+            <ul id="track-choices"></ul>
         </div>  
     `;
     const template = document.createElement('template');
@@ -64,18 +67,7 @@ export default function loadGame(userLibraryRef) {
             const randomTracks = pickFourRandomTracks(trackLibrary);
             const gameDisplayDom = makeGameDisplay();
             gameContainer.appendChild(gameDisplayDom);
-            loadGameContent(randomTracks);
-            const gameForm = document.getElementById('game-form');
-            gameForm.addEventListener('submit', event => {
-                event.preventDefault();
-                const formDaddy = new FormData(gameForm);
-                const answer = Number(formDaddy.get('track-choice'));
-                if(correctId === answer) { 
-                    score++;
-                    scoreSpan.textContent = score;
-                }
-                loadGame(userLibraryRef);
-            });
+            loadGameContent(randomTracks, userLibraryRef);
         });
 }
 

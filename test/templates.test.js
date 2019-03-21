@@ -73,11 +73,8 @@ test('Make profile', assert => {
 test('MakeTrackChoice', assert => {
     // Arrange
     const expected = `
-        <li>
-            <label>
-                <input type="radio" name="track-choice" value="3411415">
-                I Need to Know by Kanye West
-            </label>
+        <li value="3411415">
+            I Need to Know by Kanye West
         </li>
     `;
     const track =   {
@@ -99,10 +96,7 @@ test('make game template', assert => {
     const expected = `
         <div>
             <div id="lyrics-container"></div>
-            <form id="game-form">
-                <ul id="track-choices"></ul>
-                <button>Now Sing It!</button>
-            </form>
+            <ul id="track-choices"></ul>
         </div>  
     `;
 
@@ -128,7 +122,7 @@ test('make header template', assert => {
     //assert
     assert.htmlEqual(result, expected);
 });
-  
+
 test('Scoreboard template', assert => {
     // Arrange
     const expected = `
