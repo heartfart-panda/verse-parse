@@ -3,7 +3,9 @@ import { clearGame } from './game-component.js';
 import { auth, librariesByUserRef, usersRef } from '../firebase.js';
 import loadHeader from '../header-component.js';
 import loadProfile from '../profile-component.js';
+
 const startButton = document.getElementById('start-button');
+const timerSpan = document.getElementById('timer');
 
 loadHeader();
 loadProfile();
@@ -37,9 +39,7 @@ auth.onAuthStateChanged(user => {
                         }
                     });
                 window.location = './results.html';
-
             }
         }
     });
 });
-const timerSpan = document.getElementById('timer');
