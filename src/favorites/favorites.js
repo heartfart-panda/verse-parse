@@ -9,10 +9,10 @@ const gameButton = document.getElementById('game-button');
 
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
-    const userFavorites = favoritesByUserRef.child(userId);
+    const userFavoritesRef = favoritesByUserRef.child(userId);
     const userLibraryRef = librariesByUserRef.child(userId);
     let artistList = null;
-    userFavorites.on('value', snapshot => {
+    userFavoritesRef.on('value', snapshot => {
         const value = snapshot.val();
         if(!value) {
             clearList(favoritedArtistsList);
