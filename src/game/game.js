@@ -34,6 +34,9 @@ auth.onAuthStateChanged(user => {
                 topScoreRef.once('value')
                     .then(snapshot => {
                         const value = snapshot.val();
+                        if(!value) {
+                            topScoreRef.set(0);
+                        }
                         if(recentScore > value) {
                             topScoreRef.set(recentScore);
                         }
