@@ -74,7 +74,8 @@ test('MakeTrackChoice', assert => {
     // Arrange
     const expected = `
         <li value="3411415">
-            I Need to Know by Kanye West
+            <p class="track-title">I Need to Know</p>
+            <p class="track-artist">by Kanye West</p>
         </li>
     `;
     const track =   {
@@ -94,7 +95,7 @@ test('MakeTrackChoice', assert => {
 test('make game template', assert => {
     // Arrange
     const expected = `
-        <div>
+        <div id="game">
             <div id="lyrics-container"></div>
             <ul id="track-choices"></ul>
         </div>  
@@ -127,7 +128,7 @@ test('Scoreboard template', assert => {
     // Arrange
     const expected = `
         <tr>
-            <td><img src="google.com">Cheri</td>
+            <td><div><img src="google.com">Cheri</div></td>
             <td>4 points</td>
         </tr>
     `;
