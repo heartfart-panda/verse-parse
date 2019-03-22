@@ -7,7 +7,7 @@ QUnit.module('URL Construction for API fetching');
 
 test('URL construction for API fetching', assert => {
     // Arrange
-    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/artist.search?q_artist=kanye+west&apikey=4ea498175559de7c0a11e145c20744ff&page=1&page_size=100';
+    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/artist.search?q_artist=kanye+west&apikey=67dfba00e87eb084c238146f5101d4da&page=1&page_size=100';
     const queryOptions = {
         search: 'kanye west',
         page: 1
@@ -36,7 +36,7 @@ test('Return empty string if no search', assert => {
 
 test('make url for track fetch, based on artist id', assert => {
     // Arrange
-    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/track.search?f_artist_id=123456&apikey=4ea498175559de7c0a11e145c20744ff&f_has_lyrics=1&f_lyrics_language=en&s_track_rating=desc&page=1&page_size=10';
+    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/track.search?f_artist_id=123456&apikey=67dfba00e87eb084c238146f5101d4da&f_has_lyrics=1&f_lyrics_language=en&s_track_rating=desc&page=1&page_size=10';
     const artist = {
         artist_id: 123456
     };
@@ -49,7 +49,7 @@ test('make url for track fetch, based on artist id', assert => {
 
 test('make fetch url for lyrics', assert => {
     // Arrange
-    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=16440100&apikey=4ea498175559de7c0a11e145c20744ff';
+    const expected = CORS_ANYWHERE + 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=16440100&apikey=67dfba00e87eb084c238146f5101d4da';
     const trackID = 16440100;
     // Act
     const result = makeLyricSearchUrl(trackID);

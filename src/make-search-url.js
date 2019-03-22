@@ -1,7 +1,7 @@
 const BASE_URL = 'https://api.musixmatch.com/ws/1.1/';
 const ARTIST_SEARCH = 'artist.search';
 const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com/';
-const API_KEY = '4ea498175559de7c0a11e145c20744ff';
+const API_KEY = '67dfba00e87eb084c238146f5101d4da';
 const TRACK_SEARCH = 'track.search';
 const LYRICS_SEARCH = 'track.lyrics.get';
 
