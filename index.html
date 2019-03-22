@@ -7,13 +7,16 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan%7CCourgette%7CSpecial+Elite" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan%7CCourgette%7CSpecial+Elite%7CZCOOL+XiaoWei" rel="stylesheet">
     <link rel="stylesheet" href="./src/index.css">
     <link rel="stylesheet" href="./src/favorites/favorites.css">
 </head>
 <body>
     <header id="header-container"></header>
     <main>
+        <section id="instructions">
+            <p>Search for 3-5 of your favorite artists and then submit to play.</p>
+        </section>
         <section id="search-section">
             <form id="form">
                 <label>
@@ -35,10 +38,12 @@
         <article>
             <h2>Favorite Artists</h2>
             <ul id="favorited-artists-list"></ul>
-            <button id="submit-favorite-artists">Submit Favorite Artists</button>
-            <a href="./game.html">
-                <button id="game-button" class="none">Start Game</button>
-            </a>
+            <button id="submit-favorite-artists">
+                    <span class="yellow">submit</span><span class="purple">(</span><span class="light-blue">favoriteArtists</span><span class="purple">)</span><span class="white">;</span>
+            </button>
+            <button id="game-button" class="none">
+                <span class="yellow">startGame</span><span class="purple">(</span><span class="light-blue">favoriteArtists</span><span class="purple">)</span><span class="white">;</span>
+            </button>
         </article>
     </main>
     <footer>

@@ -49,3 +49,7 @@ auth.onAuthStateChanged(user => {
         gameButton.classList.remove('none');
     });
 });
+
+gameButton.addEventListener('click', () => {
+    window.location = './game.html';
+});

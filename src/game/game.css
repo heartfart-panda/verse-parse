@@ -91,9 +91,20 @@
     box-shadow: 5px 5px 5px 3px black;
     font-weight: 500;
 }
+#game-container button {
+    padding: 20px;
+    width: 25%;
+    font-family: 'Special Elite', cursive;
+    text-align: center;
+    font-size: 2em;
+}
 
 #game-container button:hover {
     background: rgb(204, 194, 102);
+}
+
+#game-container button:active {
+    background: rgb(160, 78, 160);
 }
 
 #game {
@@ -102,4 +113,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+#game-instructions {
+    text-align: center;
+    color: black;
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 3vh;
 }

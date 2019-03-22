@@ -16,7 +16,7 @@ export default function loadArtists(artists, ul) {
     clearList(ul);
     if(artists[0].artist) {
         if(artists.every(artist => artist.artist.artist_rating <= 50)) {
-            alert('No results found');
+            alert('We\'re not hipsters here. Find someone more mainstream.');
         }
     }
     artists.forEach(artist => {
