@@ -54,7 +54,7 @@ export default function loadArtists(artists, ul) {
     });
 }
 
-function clearList(ul) {
+export function clearList(ul) {
     while(ul.children.length > 0) {
         ul.lastElementChild.remove();
     }

@@ -1,5 +1,6 @@
 import { auth, favoritesByUserRef, librariesByUserRef } from '../firebase.js';
 import loadArtists from '../list-component.js';
+import { clearList } from '../list-component.js';
 import { makeTrackSearchUrl, makeLyricSearchUrl } from '../make-search-url.js';
 
 const favoritedArtistsList = document.getElementById('favorited-artists-list');
@@ -13,8 +14,12 @@ auth.onAuthStateChanged(user => {
     let artistList = null;
     userFavorites.on('value', snapshot => {
         const value = snapshot.val();
-        artistList = Object.values(value);
-        loadArtists(artistList, favoritedArtistsList);
+        if(!value) {
+            clearList(favoritedArtistsList);
+        } else {
+            artistList = Object.values(value);
+            loadArtists(artistList, favoritedArtistsList);
+        }
     });
     submitFavoriteArtistsButton.addEventListener('click', () => {
         userLibraryRef.remove();
