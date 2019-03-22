@@ -6,7 +6,7 @@
 
 body {
     background-color: rgb(68, 67, 67);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'ZCOOL XiaoWei', serif;
 }
 
 header {
@@ -20,6 +20,7 @@ header {
     min-height: 100px;
     font-family: 'Special Elite', cursive;
     box-shadow: 0 5px 15px black;
+    letter-spacing: 1vw;
 }
 
 header h1 {
@@ -33,7 +34,6 @@ header h1 {
     margin-top: 2vh;
     text-align: center;
     color: white;
-    font-family: 'ZCOOL XiaoWei', serif;
     font-size: 1.25em;
 }
 
@@ -72,10 +72,12 @@ header h1 {
     border-radius: 10px;
     background: rgb(128, 128, 128);
     color: white;
+    font-family: 'ZCOOL XiaoWei', serif;
 }
 
 #profile p {
     margin: 1vh;
+    letter-spacing: 1px;
 }
 #profile img {
     display: flex;
@@ -86,7 +88,6 @@ header h1 {
 #search-section {
     margin-bottom: 0;
     padding-bottom: 0;
-    height: 80vh;
 }
 
 #form {
@@ -98,6 +99,7 @@ header h1 {
 #form span {
     font-weight: bolder;
     font-size: 1.5em;
+    font-family: 'Special Elite';
 }
 
 #form input {
@@ -115,7 +117,12 @@ header h1 {
     background: black;
     border-color: rgb(228, 245, 253);
     font-size: 1em;
+    letter-spacing: 2px;
  }
+
+#form button span {
+    font-family: 'ZCOOL XiaoWei', serif;
+}
 
 #artist-search {
     height: 1.8em;
@@ -137,7 +144,6 @@ ul#searched-artist-list {
     margin-top: 2vh;
     padding-left: 1vw;
     border-radius: 5px;
-    font-family: 'ZCOOL XiaoWei', serif;
     box-shadow: 3px 3px 5px 1px grey;
     background: silver;
     cursor: pointer;
@@ -146,10 +152,25 @@ ul#searched-artist-list {
     font-size: 1.75em;
 }
 
+#searched-artist-list li:hover {
+    background: rgb(214, 214, 214);
+}
+
 .favorite {
     color:  rgb(255, 115, 0);
 }
 
 .none {
     display: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 1vh;
+    height: 3vh;
+    left: 1vw;
+}
+
+footer img {
+    height: 100%;
 }
