@@ -13,7 +13,7 @@ loadProfile();
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
     const userLibraryRef = librariesByUserRef.child(userId);
-    let timer = 60;
+    let timer = 10;
     timerSpan.textContent = timer;
 
     startButton.addEventListener('click', () => {    
@@ -33,12 +33,11 @@ auth.onAuthStateChanged(user => {
                 const topScoreRef = userRef.child('topScore');
                 topScoreRef.once('value')
                     .then(snapshot => {
-                        const value = snapshot.val();
-                        if(!value) {
-                            topScoreRef.set(0);
-                        }
+                        const value = Number(snapshot.val());
                         if(recentScore > value) {
                             topScoreRef.set(recentScore);
+                        } else {
+                            topScoreRef.set(value);
                         }
                     });
                 window.location = './results.html';
