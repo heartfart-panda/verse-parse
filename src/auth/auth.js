@@ -16,12 +16,9 @@ ui.start('#firebaseui-auth-container', {
         signInSuccessWithAuthResult(authResult) {
             const user = authResult.user;
             const photo = user.photoURL || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png';
-            usersRef.child(user.uid)
-                .set({
-                    uid: user.uid,
-                    displayName: user.displayName,
-                    photoURL: photo
-                });
+            usersRef.child(user.uid).child('uid').set(user.uid);
+            usersRef.child(user.uid).child('displayName').set(user.displayName);
+            usersRef.child(user.uid).child('photoURL').set(photo);
             return true;
         }
     }
