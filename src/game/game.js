@@ -39,8 +39,9 @@ auth.onAuthStateChanged(user => {
                         } else {
                             topScoreRef.set(value);
                         }
+                    }).then(() => {
+                        window.location = './results.html';
                     });
-                window.location = './results.html';
             }
         }
     });
